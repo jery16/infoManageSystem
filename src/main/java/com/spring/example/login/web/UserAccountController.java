@@ -17,11 +17,6 @@ import java.util.List;
 public class UserAccountController {
     @Autowired
     private UserAccountRepository userAccountRepository;
-    @RequestMapping("listAll")
-    public List<UserAccount> getAllUsers()
-    {
-        return userAccountRepository.findAll();
-    }
 
     @RequestMapping(value = "/{pageName}", method = RequestMethod.GET)
     public String registerAccountPage(@PathVariable("pageName") String subPath)
