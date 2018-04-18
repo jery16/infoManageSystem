@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Books Information</title>
@@ -7,17 +7,6 @@
 <body>
 <h2>Book List</h2>
 <div th:unless="${#lists.isEmpty(allBooks)}">
-    <!--<dl th:each="book : ${allBooks}">-->
-        <!--<dt>-->
-            <!--<span th:text="${book.bookName}">Name</span>-->
-        <!--</dt>-->
-        <!--<dd>-->
-          <!--<span th:if="${book.comment}"-->
-                <!--th:text="${book.comment}">Description</span>-->
-            <!--<span th:if="${book.comment eq null}">-->
-                <!--No description available</span>-->
-        <!--</dd>-->
-    <!--</dl>-->
     <table border="1">
         <tr>
             <th>Name</th>
