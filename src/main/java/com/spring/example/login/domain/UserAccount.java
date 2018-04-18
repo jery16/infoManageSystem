@@ -1,15 +1,13 @@
 package com.spring.example.login.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="user_tbl")
+@Table(name="usertbl")
 public class UserAccount {
     @Id
     @Column(name="id")
+    @GeneratedValue
     private int id;
     @Column(name="name")
     private String name;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books Information</title>
+</head>
+<body>
+<h2>Book List</h2>
+<div th:unless="${#lists.isEmpty(allBooks)}">
+    <!--<dl th:each="book : ${allBooks}">-->
+        <!--<dt>-->
+            <!--<span th:text="${book.bookName}">Name</span>-->
+        <!--</dt>-->
+        <!--<dd>-->
+          <!--<span th:if="${book.comment}"-->
+                <!--th:text="${book.comment}">Description</span>-->
+            <!--<span th:if="${book.comment eq null}">-->
+                <!--No description available</span>-->
+        <!--</dd>-->
+    <!--</dl>-->
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Comments</th>
+        </tr>
+        <tr th:each="book : ${allBooks}">
+            <td th:text="${book.bookName}"/>
+            <td th:text="${book.comment}"/>
+        </tr>
+    </table>
+</div>
+<div th:if="${#lists.isEmpty(allBooks)}">
+    <p>You have no books in your book list</p>
+</div>
+
+<hr/>
+
+<h3>Add a book</h3>
+<form method="POST" th:action="@{/booksInfo}" th:object="${newBook}">
+    <label for="title">Name:</label>
+    <input type="text" size="50" th:field="*{bookName}"></input><br/>
+    <label for="description">Description:</label><br/>
+    <textarea name="description" cols="80" rows="5" th:field="*{comment}"></textarea><br/>
+    <input type="submit"></input>
+</form>
+
+</body>
+</html>
